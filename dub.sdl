@@ -1,0 +1,8 @@
+name "simpletimers"
+description "Provides classes for creating a countdown and repeating timers.."
+copyright "Copyright © 2017"
+authors "Paul Crane"
+targetType "library"
+configuration "library" {
+	targetType "library"
+}
