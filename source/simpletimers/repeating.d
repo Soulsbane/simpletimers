@@ -11,7 +11,7 @@ import simpletimers.base;
 */
 class RepeatingTimer : TimerBase
 {
-public:
+protected:
 	override void run()
 	{
 		if(initialDelay_ != seconds(0))

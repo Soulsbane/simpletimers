@@ -5,6 +5,7 @@ import core.time;
 
 class TimerBase
 {
+public:
 	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
 	{
 		dur_ = dur;

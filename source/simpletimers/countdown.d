@@ -5,7 +5,7 @@ import simpletimers.base;
 
 class CountdownTimer : TimerBase
 {
-public:
+protected:
 	override void run()
 	{
 		immutable MonoTime before = MonoTime.currTime;
