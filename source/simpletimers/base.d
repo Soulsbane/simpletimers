@@ -1,11 +1,25 @@
+/**
+*	Base library for creating timers.
+*/
 module simpletimers.base;
 
 import core.thread : Thread;
 import core.time;
 
+/**
+*	Base class for creating a timer.
+*/
 class TimerBase
 {
 public:
+	/**
+	*	Starts a timer.
+	*
+	*	Params:
+	*		dur = $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) in which onTimer should be called.
+	*		initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
+	*			starting the timer.
+	*/
 	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
 	{
 		dur_ = dur;
