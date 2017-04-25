@@ -1,8 +1,14 @@
+/**
+*	A Simple library for creating a repeating timer.
+*/
 module simpletimers.repeating;
 
 import core.time;
 import simpletimers.base;
 
+/**
+*	A Class for creating a repeating timer.
+*/
 class RepeatingTimer : TimerBase
 {
 public:
