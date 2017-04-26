@@ -41,6 +41,9 @@ public:
 		start(dur!("seconds")(seconds), dur!("seconds")(initialDelay));
 	}
 
+	/**
+	*	Stops a timer.
+	*/
 	void stop()
 	{
 		running_ = false;
