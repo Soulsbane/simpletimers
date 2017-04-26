@@ -28,6 +28,19 @@ public:
 		thread_.start();
 	}
 
+	/**
+	*	Starts a timer.
+	*
+	*	Params:
+	*		seconds = Duration in which onTimer should be called.
+	*		initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
+	*			starting the timer.
+	*/
+	void start(const size_t seconds = 1, const size_t initialDelay = 0)
+	{
+		start(dur!("seconds")(seconds), dur!("seconds")(initialDelay));
+	}
+
 	void stop()
 	{
 		running_ = false;
