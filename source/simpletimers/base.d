@@ -1,5 +1,5 @@
 /**
-*	Base library for creating timers.
+	Base library for creating timers.
 */
 module simpletimers.base;
 
@@ -7,18 +7,18 @@ import core.thread : Thread;
 import core.time;
 
 /**
-*	Base class for creating a timer.
+	Base class for creating a timer.
 */
 class TimerBase
 {
 public:
 	/**
-	*	Starts a timer.
-	*
-	*	Params:
-	*		dur = $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) in which onTimer should be called.
-	*		initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
-	*			starting the timer.
+		Starts a timer.
+
+		Params:
+			dur = $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) in which onTimer should be called.
+			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
+				starting the timer.
 	*/
 	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
 	{
@@ -29,12 +29,12 @@ public:
 	}
 
 	/**
-	*	Starts a timer.
-	*
-	*	Params:
-	*		seconds = Duration in which onTimer should be called.
-	*		initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
-	*			starting the timer.
+		Starts a timer.
+
+		Params:
+			seconds = Duration in which onTimer should be called.
+			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
+				starting the timer.
 	*/
 	void start(const size_t seconds = 1, const size_t initialDelay = 0)
 	{
@@ -42,13 +42,19 @@ public:
 	}
 
 	/**
-	*	Stops a timer.
+		Stops a timer.
 	*/
 	void stop()
 	{
 		running_ = false;
 	}
 
+	/**
+		Returns whether the timer is running.
+
+		Returns:
+			True if the timer is running false otherwise.
+	*/
 	bool isRunning() const
 	{
 		return running_;
