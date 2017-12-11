@@ -16,7 +16,7 @@ protected:
 	{
 		immutable MonoTime before = MonoTime.currTime;
 
-		while(running_)
+		while(super.isRunning())
 		{
 			thread_.sleep(dur!("msecs")(10)); // Throttle so we don't take up too much CPU
 
@@ -26,7 +26,7 @@ protected:
 			if(dur >= dur_)
 			{
 				onTimer();
-				running_ = false;
+				super.stop();
 			}
 		}
 	}

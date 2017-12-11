@@ -23,7 +23,7 @@ protected:
 
 		MonoTime before = MonoTime.currTime;
 
-		while(running_)
+		while(super.isRunning())
 		{
 			thread_.sleep(dur!("msecs")(10)); // Throttle so we don't take up too much CPU
 

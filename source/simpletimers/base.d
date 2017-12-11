@@ -49,6 +49,11 @@ public:
 		running_ = false;
 	}
 
+	bool isRunning() const
+	{
+		return running_;
+	}
+
 	abstract void run() {}
 	abstract void onTimer() {}
 
