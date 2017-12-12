@@ -36,11 +36,17 @@ unittest
 {
 	class TestCountdownTimer : CountdownTimer
 	{
+		~this()
+		{
+			assert(onTimerExecuted_ == true);
+		}
+
 		override void onTimer()
 		{
-			import std.stdio : writeln;
-			writeln("TestCountdownTimer.onTimer");
+			onTimerExecuted_ = true;
 		}
+
+		bool onTimerExecuted_;
 	}
 
 	TestCountdownTimer countdownTimer = new TestCountdownTimer;

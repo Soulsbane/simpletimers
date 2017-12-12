@@ -45,12 +45,16 @@ unittest
 {
 	class TestRepeatingTimer : RepeatingTimer
 	{
+		~this()
+		{
+			assert(count_ == 3);
+		}
+
 		override void onTimer()
 		{
 			import std.stdio : writeln;
 
 			++count_;
-			writeln("TestRepeatingTimer.onTimer");
 
 			if(count_ == 3)
 			{
