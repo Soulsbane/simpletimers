@@ -36,10 +36,10 @@ public:
 			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
 				starting the timer.
 	*/
-	void start(const size_t seconds = 1, const size_t initialDelay = 0)
+	/*void start(const size_t seconds = 1, const size_t initialDelay = 0)
 	{
 		start(dur!("seconds")(seconds), dur!("seconds")(initialDelay));
-	}
+	}*/
 
 	/**
 		Stops a timer.
