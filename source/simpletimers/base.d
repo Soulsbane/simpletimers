@@ -60,6 +60,9 @@ public:
 		return running_;
 	}
 
+	void onStop() {}
+	void onStart() {}
+
 	abstract void run() {}
 	abstract void onTimer() {}
 
