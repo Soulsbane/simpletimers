@@ -22,6 +22,8 @@ public:
 	*/
 	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
 	{
+		onTimerStart();
+
 		dur_ = dur;
 		initialDelay_ = initialDelay;
 		thread_ = new Thread(&startInfiniteLoop);
@@ -81,6 +83,7 @@ public:
 	void stop()
 	{
 		running_ = false;
+		onTimerStop();
 	}
 
 	/**
@@ -94,7 +97,14 @@ public:
 		return running_;
 	}
 
+	/**
+		Called immediately after stop is calleed.
+	*/
 	void onTimerStop() {}
+
+	/**
+		Called immediately after start is called before looping and initial delay processing.
+	*/
 	void onTimerStart() {}
 
 	abstract void run() {}
