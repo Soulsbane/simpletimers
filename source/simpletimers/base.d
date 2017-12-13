@@ -52,7 +52,7 @@ public:
 		}
 	}
 
-	void startInitialDelay()
+	private void startInitialDelay()
 	{
 		if(initialDelay_ != seconds(0))
 		{
