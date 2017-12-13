@@ -24,8 +24,42 @@ public:
 	{
 		dur_ = dur;
 		initialDelay_ = initialDelay;
-		thread_ = new Thread(&run);
+		thread_ = new Thread(&startInfiniteLoop);
+
 		thread_.start();
+	}
+
+	private void startInfiniteLoop()
+	{
+		MonoTime before = MonoTime.currTime;
+
+		startInitialDelay();
+
+		while(isRunning())
+		{
+			thread_.sleep(dur!("msecs")(10)); // Throttle so we don't take up too much CPU
+
+			MonoTime after = MonoTime.currTime;
+			immutable Duration dur = after - before;
+
+			if(dur >= dur_)
+			{
+				run();
+
+				before = MonoTime.currTime;
+				after = MonoTime.currTime;
+			}
+		}
+	}
+
+	void startInitialDelay()
+	{
+		if(initialDelay_ != seconds(0))
+		{
+			thread_.sleep(initialDelay_);
+		}
+
+		onTimer();
 	}
 
 	/**

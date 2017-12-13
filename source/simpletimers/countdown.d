@@ -14,21 +14,8 @@ class CountdownTimer : TimerBase
 protected:
 	override void run()
 	{
-		immutable MonoTime before = MonoTime.currTime;
-
-		while(super.isRunning())
-		{
-			thread_.sleep(dur!("msecs")(10)); // Throttle so we don't take up too much CPU
-
-			immutable MonoTime after = MonoTime.currTime;
-			immutable Duration dur = after - before;
-
-			if(dur >= dur_)
-			{
-				onTimer();
-				super.stop();
-			}
-		}
+		onTimer();
+		super.stop();
 	}
 }
 
