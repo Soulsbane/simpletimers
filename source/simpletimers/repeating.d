@@ -1,5 +1,5 @@
 /**
-	A Simple library for creating a repeating timer.
+	A simple repeating timer.
 */
 module simpletimers.repeating;
 
@@ -7,7 +7,7 @@ import core.time;
 import simpletimers.base;
 
 /**
-	A Class for creating a repeating timer.
+	Repeating timer that continually calls onTimer.
 */
 class RepeatingTimer : TimerBase
 {

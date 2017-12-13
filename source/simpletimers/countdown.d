@@ -1,5 +1,5 @@
 /**
-	A Simple library for creating a countdown timer.
+	A simple countdown timer.
 */
 module simpletimers.countdown;
 
@@ -7,7 +7,7 @@ import core.time;
 import simpletimers.base;
 
 /**
-	A Class for creating a countdown timer.
+	Countdown timer that waits for a period of time before calling onTimer.
 */
 class CountdownTimer : TimerBase
 {
