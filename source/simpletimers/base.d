@@ -39,8 +39,6 @@ public:
 
 		while(isRunning())
 		{
-			thread_.sleep(dur!("msecs")(10)); // Throttle so we don't take up too much CPU
-
 			MonoTime after = MonoTime.currTime;
 			immutable Duration dur = after - before;
 
@@ -50,6 +48,8 @@ public:
 
 				before = MonoTime.currTime;
 				after = MonoTime.currTime;
+
+				thread_.sleep(dur);
 			}
 		}
 	}
