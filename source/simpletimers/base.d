@@ -69,13 +69,12 @@ public:
 
 		Params:
 			seconds = Duration in which onTimer should be called.
-			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
-				starting the timer.
+			initialDelay = The Duration to wait before starting the timer.
 	*/
-	/*void start(const size_t seconds = 1, const size_t initialDelay = 0)
+	void start(const size_t seconds, const size_t initialDelay)
 	{
 		start(dur!("seconds")(seconds), dur!("seconds")(initialDelay));
-	}*/
+	}
 
 	/**
 		Stops a timer.
