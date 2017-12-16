@@ -11,27 +11,8 @@ import core.time;
 */
 class TimerBase
 {
-public:
-	/**
-		Starts a timer.
-
-		Params:
-			dur = $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) in which onTimer should be called.
-			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
-				starting the timer.
-	*/
-	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
-	{
-		onTimerStart();
-
-		dur_ = dur;
-		initialDelay_ = initialDelay;
-		thread_ = new Thread(&startInfiniteLoop);
-
-		thread_.start();
-	}
-
-	private void startInfiniteLoop()
+private:
+	void startInfiniteLoop()
 	{
 		MonoTime before = MonoTime.currTime;
 
@@ -54,7 +35,7 @@ public:
 		}
 	}
 
-	private void startInitialDelay()
+	void startInitialDelay()
 	{
 		if(initialDelay_ != seconds(0))
 		{
@@ -64,6 +45,25 @@ public:
 		onTimer();
 	}
 
+public:
+	/**
+		Starts a timer.
+
+		Params:
+			dur = $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) in which onTimer should be called.
+			initialDelay = The $(LINK2 http://dlang.org/phobos/core_time.html#.Duration, Duration) to wait before
+				starting the timer.
+	*/
+	void start(const Duration dur = dur!("seconds")(1), const Duration initialDelay = dur!("seconds")(0))
+	{
+		onTimerStart();
+
+		dur_ = dur;
+		initialDelay_ = initialDelay;
+		thread_ = new Thread(&startInfiniteLoop);
+
+		thread_.start();
+	}
 	/**
 		Starts a timer.
 
