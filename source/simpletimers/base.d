@@ -109,7 +109,7 @@ public:
 	abstract void run() {}
 	abstract void onTimer() {}
 
-protected:
+private:
 	bool running_ = true;
 	Thread thread_;
 	Duration dur_;
