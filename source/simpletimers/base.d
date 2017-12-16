@@ -97,7 +97,7 @@ public:
 	}
 
 	/**
-		Called immediately after stop is calleed.
+		Called immediately after stop is called.
 	*/
 	void onTimerStop() {}
 
